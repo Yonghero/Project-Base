@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -11,6 +11,7 @@
     "@types/axios": "^0.14.0",
     "axios": "^0.26.0",
     "element-plus": "^2.0.4",
+    "esbuild-windows-64": "^0.14.25",
     "pinia": "^2.0.0-rc.10",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12"

@@ -7,6 +7,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^1.0.1",
     "@fatewa/kinnara": "^1.0.5",
     "@types/axios": "^0.14.0",
     "axios": "^0.26.0",

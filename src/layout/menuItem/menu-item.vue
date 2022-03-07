@@ -27,7 +27,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import ImageMap from '../imageMap.js'
+import ImageMap from '../imageMap'
 const transUrl = (url: any) => {
   return new URL(url, import.meta.url).href
 }

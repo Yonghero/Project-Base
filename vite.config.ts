@@ -1,6 +1,7 @@
 import path from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import WindiCSS from 'vite-plugin-windicss'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
@@ -15,12 +16,13 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    vueJsx(),
     WindiCSS(),
     AutoImport({
       resolvers: [ElementPlusResolver()],
       imports: [
         'vue',
-        'vue-router'
+        'vue-router',
       ],
       dts: './src/auto-imports.d.ts',
     }),
@@ -37,4 +39,4 @@ export default defineConfig({
       'vue-demi',
     ],
   },
-});
+})

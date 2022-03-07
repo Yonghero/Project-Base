@@ -14,6 +14,9 @@ declare module 'vue' {
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    Fuzzy: typeof import('./src/components/Fuzzy/index.vue')['default']
+    Query: typeof import('./src/components/Fuzzy/components/Query.vue')['default']
+    Rest: typeof import('./src/components/Rest/index.vue')['default']
   }
 }
 

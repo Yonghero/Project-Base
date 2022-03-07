@@ -6,6 +6,9 @@ module.exports = {
     'eslint:recommended',
     'plugin:vue/vue3-recommended',
     'prettier',
+    '@antfu',
   ],
-  rules: {},
-};
+  rules: {
+    semi: ['error', 'never'],
+  },
+}

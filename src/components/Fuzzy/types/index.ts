@@ -1,4 +1,4 @@
-import type { VNode } from 'vue'
+import type { Ref, VNode } from 'vue'
 
 interface TemplateConfiguration {
   title?: string | { text: string; icon: string }
@@ -9,18 +9,19 @@ interface TemplateConfiguration {
     delete: string
     query: string
   }
-  templates: Array<Templates> | Array<Array<Templates>>
+  templates: Templates[] | Array<Array<Templates>>
 }
 
 interface Templates {
   label?: string
   value: string
+  defaultQueryValue?: string
   rules?: []
   require?: boolean
   placeholder?: string
   items?: Array<{ label: {}; value: string }>
   width?: number | string
-  visible: {
+  visible?: {
     query?: boolean
     table?: boolean
     create?: boolean
@@ -29,9 +30,17 @@ interface Templates {
   render?(param: unknown): VNode
 }
 
+interface FuzzyBaseModel<T> {
+  config: TemplateConfiguration | Templates[]
+  data: Ref<Array<T>>
+  mapDataAccordConfig: () => void
+  handleEvent: () => any
+}
+
 export {
   TemplateConfiguration,
   Templates,
+  FuzzyBaseModel,
 }
 
 export * from './symbols'

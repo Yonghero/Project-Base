@@ -12,5 +12,9 @@ module.exports = {
     'semi': ['error', 'never'],
     'no-console': 'off',
     'react/no-unknown-property': 'off',
+    'no-new': 'off',
+    'react/display-name': 'off',
+    'no-debugger': 'off',
+    'no-restricted-syntax': 'off',
   },
 }

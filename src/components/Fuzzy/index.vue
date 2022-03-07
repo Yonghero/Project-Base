@@ -1,19 +1,22 @@
 <template>
   <div class="w-full zinc shadow-gray-500 rounded-sm h-full bg-gray-50">
-    <Top />
+    <Bar />
     <Query />
   </div>
 </template>
 
 <script setup lang='ts'>
-import { ConfigProvide } from './types'
-import { Query, Top } from './components'
+import type { TemplateConfiguration } from './types'
+import { UpdateModelProvide } from './types'
+import { Bar, Query } from './components'
+import { initialzeFuzzy } from './utils'
 
 const props = defineProps({
   config: Object,
 })
 
-provide(ConfigProvide, props.config)
+// 初始化
+initialzeFuzzy(props.config as TemplateConfiguration)
 
 </script>
 <style lang='scss' scoped>

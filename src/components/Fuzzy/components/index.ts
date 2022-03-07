@@ -1,7 +1,7 @@
 import Query from './Query.vue'
-import Top from './Top'
+import Bar from './Bar'
 
 export {
   Query,
-  Top,
+  Bar,
 }

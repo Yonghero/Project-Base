@@ -6,10 +6,10 @@ class TableModel implements FuzzyBaseModel<any> {
   config: Templates[]
   data: Ref<any[]> = ref([])
   model: any
-  tableOperation: tableOperation
+  tableOperation: any
   requestFuzzy: any
 
-  constructor(config: Templates[], tableOperation: tableOperation, requestFuzzy: Ref<RequestFuzzy>) {
+  constructor(config: Templates[], tableOperation: tableOperation | undefined, requestFuzzy: Ref<RequestFuzzy>) {
     this.config = config
     this.tableOperation = tableOperation
     this.requestFuzzy = requestFuzzy

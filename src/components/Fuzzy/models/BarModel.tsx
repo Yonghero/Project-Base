@@ -64,7 +64,7 @@ class BarModel implements FuzzyBaseModel<tabItem> {
           onClick={tab.onClick}
           class={[
             this.activeIndex.value === tabIndex ? 'bg-primary-100 text-white' : 'bg-gray-300 text-gray-700',
-            'py-3', 'px-9',
+            'py-2.5', 'px-10',
             'rounded-t-lg', 'flex', 'items-center', 'mr-3', ' shadow-primary-50',
           ].join(' ')}
         >{tab.label}</div>

@@ -1,5 +1,5 @@
 import type { Api, TemplateConfiguration, Templates } from '../types'
-import { BarModelProvide, PagingModelProvide, QueryModelProvide, TableModelProvide } from '../types'
+import { BarModelProvide, PagingModelProvide, QueryModelProvide, RequestModelProvide, TableModelProvide } from '../types'
 import { BarModel, PagingModel, QueryModel, TableModel } from '../models'
 
 function initialzeFuzzy(config: TemplateConfiguration) {
@@ -25,18 +25,22 @@ function initialzeFuzzy(config: TemplateConfiguration) {
     const api = Array.isArray(config.api)
       ? config.api[barModel.activeIndex.value]
       : config.api
+    const tableOperation = Array.isArray(config.tableOperation)
+      ? config.tableOperation[barModel.activeIndex.value]
+      : config.tableOperation
 
     requestFuzzyRef.value = new RequestFuzzy(api)
 
-    tableModel.value = new TableModel(templates, config.tableOperation, requestFuzzyRef)
+    tableModel.value = new TableModel(templates, tableOperation, requestFuzzyRef)
     queryModel.value = new QueryModel(templates, tableModel)
-    pagingModel.value = new PagingModel(config.pagination, tableModel, requestFuzzyRef)
+    pagingModel.value = new PagingModel(config.pagination, tableModel)
   })
 
   provide(BarModelProvide, barModel)
   provide(QueryModelProvide, queryModel)
   provide(TableModelProvide, tableModel)
   provide(PagingModelProvide, pagingModel)
+  provide(RequestModelProvide, requestFuzzyRef)
 }
 
 export {
@@ -47,7 +51,7 @@ interface Requset<g, p, d> {
   api: string | Api
   get: () => g
   post: () => p
-  delete: () => d
+  delete: (param: any) => d
 }
 export class RequestFuzzy implements Requset<any, any, any> {
   api: string | Api
@@ -60,6 +64,7 @@ export class RequestFuzzy implements Requset<any, any, any> {
 
   constructor(api: string | Api) {
     this.api = api
+    // getData
     this.get()
   }
 
@@ -79,8 +84,10 @@ export class RequestFuzzy implements Requset<any, any, any> {
     }
   }
 
-  delete() {
-    this.deleteRespose = {
+  async delete(params: any) {
+    console.log(params, 'delete')
+
+    return this.deleteRespose = {
       code: 1000,
       message: 'success',
     }

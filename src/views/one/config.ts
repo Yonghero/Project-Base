@@ -22,6 +22,7 @@ const config: TemplateConfiguration = {
         create: true,
         update: true,
       },
+      render: (row: any) => h('div', { style: 'color: red' }, [row.$index]),
     },
     {
       label: '年龄',
@@ -106,9 +107,18 @@ const config: TemplateConfiguration = {
       },
     },
   ]],
-  tableOperation: {
-    show: true,
-  },
+  // tableOperation: [{
+  //   show: true,
+  //   operator: [
+  //     {
+  //       label: '自定义',
+  //       value: 'diy',
+  //       onClick: (row: any) => {
+  //         console.log('自定义按钮', row)
+  //       },
+  //     },
+  //   ],
+  // }],
 }
 
 export default config

@@ -1,19 +1,15 @@
 import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import ElementUI from 'element-plus'
+import '~/style/index.scss'
+import ElementPlus from 'element-plus'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
-import Fuzzy from './components/Fuzzy/index.vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
-import router from './router/index'
-import 'element-plus/dist/index.css'
 import 'virtual:windi.css'
-import './style/index.scss'
+import router from './router/index'
 
 createApp(App)
   .use(router)
-  .use(createPinia())
-  .use(ElementUI, {
+  .use(ElementPlus, {
     locale: zhCn,
   })
-  .component('Fuzzy', Fuzzy)
-  .mount('#app')
+  .use(createPinia()).mount('#app')

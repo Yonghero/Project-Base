@@ -24,9 +24,6 @@ declare module 'vue' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-<<<<<<< HEAD
-    Fuzzy: typeof import('./src/components/Fuzzy/index.vue')['default']
-=======
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     FTabel: typeof import('./src/components/Fuzzy/components/FTabel.vue')['default']
@@ -36,7 +33,6 @@ declare module 'vue' {
     Query: typeof import('./src/components/Fuzzy/components/Query.vue')['default']
     Rest: typeof import('./src/components/Rest/index.vue')['default']
     Tabel: typeof import('./src/components/Fuzzy/components/Tabel.vue')['default']
->>>>>>> zyx-copy
   }
 }
 

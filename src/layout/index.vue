@@ -49,12 +49,12 @@ const exit = () => {
 </script>
 <style lang='scss' scope>
 .el-header{
-  height : 64px;
+  height : 64px !important;
   background: #283450;
   padding: 0 26px 0 37px;
 }
 .header{
-  height: 100%;
+  height : 64px;
   .header_title{
     height: 100%;
     display: flex;

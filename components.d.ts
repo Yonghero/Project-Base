@@ -19,9 +19,13 @@ declare module 'vue' {
     ElRow: typeof import('element-plus/es')['ElRow']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
+    FTabel: typeof import('./src/components/Fuzzy/components/FTabel.vue')['default']
+    FTable: typeof import('./src/components/Fuzzy/components/FTable.vue')['default']
     Fuzzy: typeof import('./src/components/Fuzzy/index.vue')['default']
+    Pagination: typeof import('./src/components/Fuzzy/components/Pagination.vue')['default']
     Query: typeof import('./src/components/Fuzzy/components/Query.vue')['default']
     Rest: typeof import('./src/components/Rest/index.vue')['default']
+    Tabel: typeof import('./src/components/Fuzzy/components/Tabel.vue')['default']
   }
 }
 

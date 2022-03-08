@@ -4,10 +4,14 @@ const ConfigProvide: InjectionKey<TemplateConfiguration> = Symbol('ConfigProvide
 const UpdateModelProvide: InjectionKey<(index: number) => void> = Symbol('UpdateModel')
 const QueryModelProvide: InjectionKey<any> = Symbol('QueryModel')
 const BarModelProvide: InjectionKey<any> = Symbol('BarModel')
+const TableModelProvide: InjectionKey<any> = Symbol('TableModel')
+const PagingModelProvide: InjectionKey<any> = Symbol('PagingModel')
 
 export {
   ConfigProvide,
   UpdateModelProvide,
   QueryModelProvide,
   BarModelProvide,
+  TableModelProvide,
+  PagingModelProvide,
 }

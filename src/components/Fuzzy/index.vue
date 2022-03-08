@@ -1,14 +1,16 @@
 <template>
-  <div class="w-full zinc shadow-gray-500 rounded-sm h-full bg-gray-50">
+  <div class="w-full zinc shadow-gray-500 rounded-sm h-full bg-gray-50 relative">
     <Bar />
     <Query />
+    <FTable />
+    <Pagination />
   </div>
 </template>
 
 <script setup lang='ts'>
 import type { TemplateConfiguration } from './types'
 import { UpdateModelProvide } from './types'
-import { Bar, Query } from './components'
+import { Bar, FTable, Pagination, Query } from './components'
 import { initialzeFuzzy } from './utils'
 
 const props = defineProps({

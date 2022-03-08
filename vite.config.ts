@@ -5,7 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import WindiCSS from 'vite-plugin-windicss'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -19,7 +19,7 @@ export default defineConfig({
     vueJsx(),
     WindiCSS(),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      // resolvers: [ElementPlusResolver()],
       imports: [
         'vue',
         'vue-router',
@@ -27,7 +27,7 @@ export default defineConfig({
       dts: './src/auto-imports.d.ts',
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      // resolvers: [ElementPlusResolver()],
     }),
   ],
   optimizeDeps: {

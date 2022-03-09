@@ -4,11 +4,16 @@ interface TemplateConfiguration {
   title?: string | { text: string; icon: string }
   tabList?: Array<{ label: string; value: any }>
   api: string | Api | Array<string> | Array<Api>
+  feature: Feature | Array<Feature>
   tableOperation?: tableOperation | Array<tableOperation>
   pagination?: Pagination
   templates: Templates[] | Array<Array<Templates>>
 }
-
+interface Feature {
+  create?: boolean
+  update?: boolean
+  delete?: boolean
+}
 interface Templates {
   label?: string
   value: string
@@ -77,6 +82,7 @@ export {
   Pagination,
   OperatorCmd,
   Api,
+  Feature,
 }
 
 export * from './symbols'

@@ -1,4 +1,4 @@
-import type { Api, TemplateConfiguration, Templates } from '../types'
+import type { Api, TemplateConfiguration } from '../types'
 import { BarModelProvide, PagingModelProvide, QueryModelProvide, RequestModelProvide, TableModelProvide } from '../types'
 import { BarModel, PagingModel, QueryModel, TableModel } from '../models'
 
@@ -18,22 +18,17 @@ function initialzeFuzzy(config: TemplateConfiguration) {
   // 请求数据
   const requestFuzzyRef = ref()
 
+  // 获取当前页面配置
+  const getTmpl = catchTmpl(config)
+
   watchEffect(() => {
-    const templates = config.tabList
-      ? config.templates[barModel.activeIndex.value] as Array<Templates>
-      : config.templates as Array<Templates>
-    const api = Array.isArray(config.api)
-      ? config.api[barModel.activeIndex.value]
-      : config.api
-    const tableOperation = Array.isArray(config.tableOperation)
-      ? config.tableOperation[barModel.activeIndex.value]
-      : config.tableOperation
+    const getFieldOfTempl = getTmpl(barModel.activeIndex.value)
 
-    requestFuzzyRef.value = new RequestFuzzy(api)
+    requestFuzzyRef.value = new RequestFuzzy(getFieldOfTempl)
 
-    pagingModel.value = new PagingModel(config.pagination, tableModel)
-    tableModel.value = new TableModel(templates, tableOperation, requestFuzzyRef)
-    queryModel.value = new QueryModel(templates, tableModel)
+    pagingModel.value = new PagingModel(getFieldOfTempl, tableModel)
+    tableModel.value = new TableModel(getFieldOfTempl, requestFuzzyRef)
+    queryModel.value = new QueryModel(getFieldOfTempl, tableModel)
   })
 
   provide(BarModelProvide, barModel)
@@ -45,6 +40,27 @@ function initialzeFuzzy(config: TemplateConfiguration) {
 
 export {
   initialzeFuzzy,
+}
+
+/**
+ * 获取当前页面配置
+ * @param config
+ * @returns
+ */
+function catchTmpl(config: any) {
+  const catchConfig = config
+  return (index: number) => {
+    return (fields: string[] | string): keyof TemplateConfiguration => {
+      return Array.isArray(fields)
+        ? fields.map(field => (index !== undefined && catchConfig[field])
+          ? catchConfig[field][index]
+          : catchConfig[field],
+        )
+        : Array.isArray(catchConfig[fields])
+          ? catchConfig[fields][index]
+          : catchConfig[fields]
+    }
+  }
 }
 
 interface Requset<g, p, d> {
@@ -62,8 +78,8 @@ export class RequestFuzzy implements Requset<any, any, any> {
   // 缓存请求参数
   requestParams = reactive({})
 
-  constructor(api: string | Api) {
-    this.api = api
+  constructor(getFieldOfTempl: any) {
+    this.api = getFieldOfTempl('api')
     // getData
     this.get()
   }

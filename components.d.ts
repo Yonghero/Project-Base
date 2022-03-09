@@ -4,35 +4,10 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    AppHeader: typeof import('./src/components/AppHeader.vue')['default']
-    Counter: typeof import('./src/components/Counter.vue')['default']
-    ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
-    ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElCol: typeof import('element-plus/es')['ElCol']
-    ElContainer: typeof import('element-plus/es')['ElContainer']
-    ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
-    ElForm: typeof import('element-plus/es')['ElForm']
-    ElFormItem: typeof import('element-plus/es')['ElFormItem']
-    ElHeader: typeof import('element-plus/es')['ElHeader']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElInput: typeof import('element-plus/es')['ElInput']
-    ElMain: typeof import('element-plus/es')['ElMain']
-    ElMenu: typeof import('element-plus/es')['ElMenu']
-    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElOption: typeof import('element-plus/es')['ElOption']
-    ElRow: typeof import('element-plus/es')['ElRow']
-    ElSelect: typeof import('element-plus/es')['ElSelect']
-    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
-    FTabel: typeof import('./src/components/Fuzzy/components/FTabel.vue')['default']
     FTable: typeof import('./src/components/Fuzzy/components/FTable.vue')['default']
     Fuzzy: typeof import('./src/components/Fuzzy/index.vue')['default']
     Pagination: typeof import('./src/components/Fuzzy/components/Pagination.vue')['default']
     Query: typeof import('./src/components/Fuzzy/components/Query.vue')['default']
-    Rest: typeof import('./src/components/Rest/index.vue')['default']
-    Tabel: typeof import('./src/components/Fuzzy/components/Tabel.vue')['default']
   }
 }
 

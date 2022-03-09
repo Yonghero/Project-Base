@@ -6,8 +6,8 @@ class PagingModel {
   model: UnwrapNestedRefs <Record<string, any>> = reactive({ size: 10, total: 0, currentSize: 1 })
   tableModel: any
 
-  constructor(config: Pagination = { size: 10 }, tableModel: any) {
-    this.config = config
+  constructor(getFieldOfTempl: any, tableModel: any) {
+    this.config = getFieldOfTempl('pagination')
     this.tableModel = tableModel
     this.initModel()
   }

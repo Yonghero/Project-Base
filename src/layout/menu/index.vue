@@ -30,7 +30,7 @@ const activeIndex = computed(() => {
 <style lang="scss">
 $menuWidth : 120px;
 .el_menu{
-     height: 100%;
+     height: 56px;
     .el-menu--horizontal{
         border-bottom: none !important;
         .el-sub-menu {
@@ -40,7 +40,6 @@ $menuWidth : 120px;
             }
             .el-sub-menu__title{
                 border-bottom: none !important;
-                 height: 100%;
             }
         }
     }
@@ -53,8 +52,7 @@ $menuWidth : 120px;
 
     .el-menu-item{
         width: menuWidth;
-        height: 100%;
-        font-size: 18px !important;
+        font-size: 16px !important;
         background: #283450 !important;
     }
     .is-active{
@@ -82,7 +80,7 @@ $menuWidth : 120px;
     .el-menu-item{
         height: 40px !important;
         padding: 0 20px !important;
-        font-size: 18px !important;
+        font-size: 16px !important;
     }
 }
 </style>

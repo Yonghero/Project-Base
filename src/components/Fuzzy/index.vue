@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full zinc shadow-gray-500 rounded-sm h-full bg-gray-50 relative">
+  <div class="w-full zinc rounded-sm h-full">
     <Bar />
     <Query />
     <FTable />

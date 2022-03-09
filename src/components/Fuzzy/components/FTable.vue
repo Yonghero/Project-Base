@@ -9,11 +9,11 @@
         :key="item.value"
         :prop="item.value"
         :label="item.label"
-        :width="item.width"
+        :width="item.width ? item.width : (item.label === '序号' ? 70: '')"
         align="center"
       >
         <template
-          v-if="item.value === 'serialNumber'"
+          v-if="item.label === '序号'"
           #default="scope"
         >
           {{ scope.$index + 1 + (pagingModel.model.currentSize - 1) * pagingModel.model.size }}
@@ -32,17 +32,20 @@
         width="160"
       >
         <template
-          v-if="!tableModel.tableOperation"
           #default="scope"
         >
           <el-button
+            v-for="(operator, index) in tableModel?.tableOperation?.operator"
+            :key="index"
             type="text"
             size="small"
-            @click="handleOperator(OperatorCmd.detail, scope)"
+            @click="operator.onClick(scope)"
           >
-            详情
+            {{ operator.label }}
           </el-button>
+
           <el-button
+            v-if="tableModel?.feature?.update"
             type="text"
             size="small"
             @click="handleOperator(OperatorCmd.update, scope)"
@@ -50,6 +53,7 @@
             修改
           </el-button>
           <el-button
+            v-if="tableModel?.feature?.delete"
             type="text"
             size="small"
             style="color: #F64F42"
@@ -58,28 +62,12 @@
             删除
           </el-button>
         </template>
-
-        <template
-          v-else
-          #default="scope"
-        >
-          <el-button
-            v-for="(operator, index) in tableModel.tableOperation.operator"
-            :key="index"
-            type="text"
-            size="small"
-            @click="operator.onClick(scope)"
-          >
-            {{ operator.label }}
-          </el-button>
-        </template>
       </el-table-column>
     </el-table>
   </div>
 </template>
 
 <script setup lang='ts'>
-import type { Action } from 'element-plus'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { OperatorCmd, PagingModelProvide, RequestModelProvide, TableModelProvide } from '../types'
 
@@ -87,7 +75,7 @@ const tableModel = inject(TableModelProvide)
 const pagingModel = inject(PagingModelProvide)
 const requestFuzzy = inject(RequestModelProvide)
 
-console.log(tableModel.value.data, '----')
+console.log(tableModel.value, '----')
 
 const handleOperator = (cmd: OperatorCmd, row: any) => {
   const handler = {
@@ -133,5 +121,5 @@ watchEffect(() => {
 })
 
 </script>
-<style lang='scss' scoped>
+<style lang='scss'>
 </style>

@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import type { FuzzyBaseModel, Templates, tableOperation } from '../types'
+import type { Feature, FuzzyBaseModel, Templates } from '../types'
 import type { RequestFuzzy } from '../utils'
 
 class TableModel implements FuzzyBaseModel<any> {
@@ -8,10 +8,13 @@ class TableModel implements FuzzyBaseModel<any> {
   model: any
   tableOperation: any
   requestFuzzy: any
+  feature: Feature
 
-  constructor(config: Templates[], tableOperation: tableOperation | undefined, requestFuzzy: Ref<RequestFuzzy>) {
-    this.config = config
+  constructor(getFieldOfTempl: any, requestFuzzy: Ref<RequestFuzzy>) {
+    const [templates, tableOperation, feature] = getFieldOfTempl(['templates', 'tableOperation', 'feature'])
+    this.config = templates
     this.tableOperation = tableOperation
+    this.feature = feature
     this.requestFuzzy = requestFuzzy
     this.mapDataAccordConfig()
     this.initModel()

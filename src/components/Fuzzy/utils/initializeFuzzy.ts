@@ -31,9 +31,9 @@ function initialzeFuzzy(config: TemplateConfiguration) {
 
     requestFuzzyRef.value = new RequestFuzzy(api)
 
+    pagingModel.value = new PagingModel(config.pagination, tableModel)
     tableModel.value = new TableModel(templates, tableOperation, requestFuzzyRef)
     queryModel.value = new QueryModel(templates, tableModel)
-    pagingModel.value = new PagingModel(config.pagination, tableModel)
   })
 
   provide(BarModelProvide, barModel)

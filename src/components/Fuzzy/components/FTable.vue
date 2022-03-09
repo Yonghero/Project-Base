@@ -13,7 +13,13 @@
         align="center"
       >
         <template
-          v-if="item.render"
+          v-if="item.value === 'serialNumber'"
+          #default="scope"
+        >
+          {{ scope.$index + 1 + (pagingModel.model.currentSize - 1) * pagingModel.model.size }}
+        </template>
+        <template
+          v-else-if="item.render"
           #default="scope"
         >
           <component :is="item.render(scope)" />
@@ -75,10 +81,13 @@
 <script setup lang='ts'>
 import type { Action } from 'element-plus'
 import { ElMessage, ElMessageBox } from 'element-plus'
-import { OperatorCmd, RequestModelProvide, TableModelProvide } from '../types'
+import { OperatorCmd, PagingModelProvide, RequestModelProvide, TableModelProvide } from '../types'
 
 const tableModel = inject(TableModelProvide)
+const pagingModel = inject(PagingModelProvide)
 const requestFuzzy = inject(RequestModelProvide)
+
+console.log(tableModel.value.data, '----')
 
 const handleOperator = (cmd: OperatorCmd, row: any) => {
   const handler = {

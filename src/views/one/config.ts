@@ -13,6 +13,13 @@ const config: TemplateConfiguration = {
   },
   templates: [[
     {
+      label: '序号',
+      value: 'serialNumber',
+      visible: {
+        table: true,
+      },
+    },
+    {
       label: '姓名',
       value: 'name',
       require: true,

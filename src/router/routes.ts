@@ -3,7 +3,7 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    redirect: '/test1',
+    redirect: '/one',
     meta: {
       name: '主页面',
       hidden: true,

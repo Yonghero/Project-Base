@@ -49,14 +49,14 @@ const exit = () => {
 </script>
 <style lang='scss' scope>
 .el-header{
-  height : 64px !important;
+  height : 56px !important;
   background: #283450;
   padding: 0 26px 0 37px;
 }
 .header{
-  height : 64px;
+  height : 56px;
   .header_title{
-    height: 100%;
+    height: 56px;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -65,7 +65,7 @@ const exit = () => {
       height: 22px;
     }
     p{
-    font-size: 22px;
+    font-size: 20px;
     margin-left: 13px;
     color: #fff;
     overflow: hidden;
@@ -112,8 +112,7 @@ const exit = () => {
         box-sizing: border-box;
         background: #fff;
         border-radius: 10px;
-        box-shadow: 0 0 5px 1px #ccc;
-        padding:16px;
+        padding:8px 16px;
         box-sizing: border-box;
       }
     }

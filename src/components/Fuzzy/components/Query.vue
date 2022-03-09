@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-wrap px-6 py-4">
-    <el-form :inline="true" :model="queryModel.model" class="demo-form-inline">
+  <div class="flex flex-wrap px-6 pt-4">
+    <el-form size="default" :inline="true" :model="queryModel.model" class="demo-form-inline">
       <el-form-item
         v-for="{ value,
                  label,
@@ -23,7 +23,7 @@
         <el-select
           v-if="type === FormItemEnum.select"
           v-model="queryModel.model[value]"
-          :placeholder="placeholder"
+          :placeholder="placeholder || '请选择' + label"
           :size="size || 'default'"
         >
           <el-option
@@ -49,6 +49,7 @@
       <el-form-item>
         <el-button
           type="primary"
+          size="default"
           @click="handleEvent"
         >
           查询

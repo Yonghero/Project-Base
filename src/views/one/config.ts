@@ -3,15 +3,16 @@ import { FormItemEnum } from '~/components/Fuzzy/types'
 
 const config: TemplateConfiguration = {
   api: ['/v1/user', 'v2/user'],
+  title: '这是标题aaa',
   // title: {
   //   text: '这是标题aaa',
-  //   icon: new URL('../assets/logo.png', import.meta.url).href,
+  //   icon: new URL('../../assets/logo.png', import.meta.url).href,
   // },
-  tabList: [{ label: 'tb1', value: '1' }, { label: 'tb2', value: '1' }],
+  // tabList: [{ label: '实时值', value: '1' }, { label: '时均值', value: '1' }],
   pagination: {
     size: 10,
   },
-  templates: [[
+  templates: [
     {
       label: '姓名',
       value: 'name',
@@ -59,53 +60,54 @@ const config: TemplateConfiguration = {
         update: true,
       },
     },
-  ], [
-    {
-      label: '姓名1',
-      value: 'name',
-      require: true,
-      visible: {
-        query: true,
-        table: true,
-        create: true,
-        update: true,
-      },
-    },
-    {
-      label: '年龄1',
-      value: 'age',
-      require: true,
-      visible: {
-        query: true,
-        table: true,
-        create: true,
-        update: true,
-      },
-    },
-    {
-      label: '爱好1',
-      value: 'hobby',
-      items: [{ label: '打篮球', value: 'bk' }, { label: '打篮球', value: 'bk' }, { label: '打篮球', value: 'bk' }],
-      require: true,
-      visible: {
-        query: true,
-        table: true,
-        create: true,
-        update: true,
-      },
-    },
-    {
-      label: '时间',
-      value: 'time',
-      type: FormItemEnum.datePicker,
-      visible: {
-        query: true,
-        table: true,
-        create: true,
-        update: true,
-      },
-    },
-  ]],
+  ],
+  // [
+  //   {
+  //     label: '姓名1',
+  //     value: 'name',
+  //     require: true,
+  //     visible: {
+  //       query: true,
+  //       table: true,
+  //       create: true,
+  //       update: true,
+  //     },
+  //   },
+  //   {
+  //     label: '年龄1',
+  //     value: 'age',
+  //     require: true,
+  //     visible: {
+  //       query: true,
+  //       table: true,
+  //       create: true,
+  //       update: true,
+  //     },
+  //   },
+  //   {
+  //     label: '爱好1',
+  //     value: 'hobby',
+  //     items: [{ label: '打篮球', value: 'bk' }, { label: '打篮球', value: 'bk' }, { label: '打篮球', value: 'bk' }],
+  //     require: true,
+  //     visible: {
+  //       query: true,
+  //       table: true,
+  //       create: true,
+  //       update: true,
+  //     },
+  //   },
+  //   {
+  //     label: '时间',
+  //     value: 'time',
+  //     type: FormItemEnum.datePicker,
+  //     visible: {
+  //       query: true,
+  //       table: true,
+  //       create: true,
+  //       update: true,
+  //     },
+  //   },
+  // ]],
   tableOperation: {
     show: true,
   },

@@ -2,15 +2,23 @@
   <div class="flex flex-wrap px-6">
     <el-table
       :data="tableModel.model"
-      border style="width: 100%"
+      border
+      style="width: 100%"
+      @selection-change="handleSelectionChange"
     >
       <el-table-column
-        v-for="item in tableModel.data"
+          v-if="tableModel.data.filter(e => e.label === '选择框').length"
+          type="selection"
+          width="60"
+      />
+      <el-table-column
+        v-for="item in tableModel.data.filter(e => e.label !== '选择框')"
         :key="item.value"
         :prop="item.value"
         :label="item.label"
         :width="item.width ? item.width : (item.label === '序号' ? 70: '')"
         align="center"
+        show-overflow-tooltip
       >
         <template
           v-if="item.label === '序号'"
@@ -76,7 +84,9 @@ const pagingModel = inject(PagingModelProvide)
 const requestFuzzy = inject(RequestModelProvide)
 
 console.log(tableModel.value, '----')
-
+const handleSelectionChange = (val:any) => {
+  tableModel.value.multipleSelection.value = val
+}
 const handleOperator = (cmd: OperatorCmd, row: any) => {
   const handler = {
     [OperatorCmd.detail]: (row: any) => {

@@ -63,10 +63,18 @@
   min-width: 0 !important;
   width: 40px !important;
 }
-
+// 表格相关
 .el-table thead{
   background-color: #f1f1f1 !important;
 }
 .el-table th{
   background-color: #F1F1F1 !important;
+}
+.el-table-column--selection > .cell{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}
+.el-table .cell{
+  text-align: center;
 }

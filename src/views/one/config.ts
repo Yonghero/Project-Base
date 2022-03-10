@@ -23,6 +23,13 @@ export const getFuzzyConfig = (param: any) => {
         },
       },
       {
+        label: '选择框',
+        value: 'selectBox',
+        visible: {
+          table: true,
+        },
+      },
+      {
         label: '姓名',
         value: 'name',
         require: true,

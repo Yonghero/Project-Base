@@ -9,9 +9,10 @@ class TableModel implements FuzzyBaseModel<any> {
   tableOperation: any
   requestFuzzy: any
   feature: Feature
+  multipleSelection : Array<any> = ref([])
 
-  constructor(getFieldOfTempl: any, requestFuzzy: Ref<RequestFuzzy>) {
-    const [templates, tableOperation, feature] = getFieldOfTempl(['templates', 'tableOperation', 'feature'])
+  constructor(getFieldOfTmpl: any, requestFuzzy: Ref<RequestFuzzy>) {
+    const [templates, tableOperation, feature] = getFieldOfTmpl(['templates', 'tableOperation', 'feature'])
     this.config = templates
     this.tableOperation = tableOperation
     this.feature = feature

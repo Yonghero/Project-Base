@@ -6,6 +6,7 @@ const QueryModelProvide: InjectionKey<any> = Symbol('QueryModel')
 const BarModelProvide: InjectionKey<any> = Symbol('BarModel')
 const TableModelProvide: InjectionKey<any> = Symbol('TableModel')
 const PagingModelProvide: InjectionKey<any> = Symbol('PagingModel')
+const RequestModelProvide: InjectionKey<any> = Symbol('RequestModel')
 
 export {
   ConfigProvide,
@@ -14,4 +15,5 @@ export {
   BarModelProvide,
   TableModelProvide,
   PagingModelProvide,
+  RequestModelProvide,
 }

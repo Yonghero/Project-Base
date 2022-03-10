@@ -4,11 +4,16 @@ interface TemplateConfiguration {
   title?: string | { text: string; icon: string }
   tabList?: Array<{ label: string; value: any }>
   api: string | Api | Array<string> | Array<Api>
-  tableOperation: tableOperation
+  feature: Feature | Array<Feature>
+  tableOperation?: tableOperation | Array<tableOperation>
   pagination?: Pagination
   templates: Templates[] | Array<Array<Templates>>
 }
-
+interface Feature {
+  create?: boolean
+  update?: boolean
+  delete?: boolean
+}
 interface Templates {
   label?: string
   value: string
@@ -34,7 +39,7 @@ interface Templates {
 
 interface tableOperation {
   show?: boolean
-  operator?: Array<{ label: string; value: string; color?: string }>
+  operator?: Array<{ label: string; value: string; color?: string; onClick: (param: any) => void }>
 }
 interface Pagination {
   total?: number
@@ -62,6 +67,12 @@ enum FormItemEnum {
   datePicker = 5,
 }
 
+enum OperatorCmd {
+  detail = 1,
+  delete = 2,
+  update = 3,
+}
+
 export {
   TemplateConfiguration,
   Templates,
@@ -69,7 +80,9 @@ export {
   FormItemEnum,
   tableOperation,
   Pagination,
+  OperatorCmd,
   Api,
+  Feature,
 }
 
 export * from './symbols'

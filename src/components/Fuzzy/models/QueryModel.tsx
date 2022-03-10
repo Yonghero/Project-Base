@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import type { FuzzyBaseModel, Templates } from '../types'
+import type { Feature, FuzzyBaseModel, Templates } from '../types'
 import { FormItemEnum } from '../types'
 import { filterCompOfType } from './filterCompOfType'
 
@@ -8,16 +8,18 @@ class QueryModel implements FuzzyBaseModel<Templates> {
   model: Ref<Record<string, any>> = ref({})
   config!: Templates[]
   tableModel: any
+  feature: Feature
 
-  constructor(config: Templates[], tableModel: any) {
-    this.config = config
+  constructor(getFieldOfTempl: any, tableModel: any) {
+    const [templates, feature] = getFieldOfTempl(['templates', 'feature'])
+    this.config = templates
+    this.feature = feature
     this.tableModel = tableModel
     this.mapDataAccordConfig()
     this.initModel()
   }
 
   handleEvent() {
-    console.log(this.model, 'query_condition')
     // 触发表格数据更新
     this.tableModel.handleEvent(this.model)
   }

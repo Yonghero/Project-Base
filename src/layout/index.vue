@@ -13,7 +13,7 @@
         </el-col>
         <el-col :span="4">
           <div class="header_right">
-            <el-icon :size="30" color="#fff">
+            <el-icon :size="20" color="#fff">
               <UserFilled />
             </el-icon>
             <p class="welcome">
@@ -48,12 +48,12 @@ const exit = () => {
 }
 </script>
 <style lang='scss' scope>
-.el-header{
+.el-header {
   height : 56px !important;
   background: #283450;
   padding: 0 26px 0 37px;
 }
-.header{
+.header {
   height : 56px;
   .header_title{
     height: 56px;
@@ -64,13 +64,14 @@ const exit = () => {
       width: 19px;
       height: 22px;
     }
-    p{
-    font-size: 20px;
-    margin-left: 13px;
-    color: #fff;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    p {
+      font-size: 20px;
+      margin-left: 13px;
+      color: #fff;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: normal;
     }
   }
   .header_right{
@@ -101,20 +102,20 @@ const exit = () => {
   }
 }
 .el-main{
+    width: 100%;
+    height: calc(100vh - 64px);
+  .contain{
+    height: 100%;
+    .contain_main{
       width: 100%;
-      height: calc(100vh - 64px);
-    .contain{
-      height: 100%;
-      .contain_main{
-        width: 100%;
-        height: calc(100% - 34px);
-        margin-top: 16px;
-        box-sizing: border-box;
-        background: #fff;
-        border-radius: 10px;
-        padding:8px 16px;
-        box-sizing: border-box;
-      }
+      height: calc(100% - 34px);
+      margin-top: 16px;
+      box-sizing: border-box;
+      background: #fff;
+      border-radius: 10px;
+      padding:8px 16px;
+      box-sizing: border-box;
     }
   }
+}
 </style>

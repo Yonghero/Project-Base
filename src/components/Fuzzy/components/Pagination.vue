@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute bottom-20 left-10/20 transform -translate-x-1/2">
+  <div class="flex justify-center align-middle mt-8">
     <el-pagination
       background
       layout="prev, pager, next"

@@ -1,9 +1,10 @@
 <template>
   <div class="w-full zinc rounded-sm h-full">
-    <Bar ref="bar"/>
+    <Bar ref="bar" />
     <el-scrollbar
-        ref="scrollBar"
-        class="table-h-scrollbar">
+      ref="scrollBar"
+      class="table-h-scrollbar"
+    >
       <Query />
       <FTable />
       <Pagination />
@@ -13,13 +14,14 @@
 
 <script setup lang='ts'>
 import type { TemplateConfiguration } from './types'
-import { UpdateModelProvide } from './types'
 import { Bar, FTable, Pagination, Query } from './components'
 import { initialzeFuzzy } from './utils'
+
+// 动态滚动条高度设置
 const bar = ref()
 const scrollBar = ref()
 onMounted(() => {
-  scrollBar.value.$el.style.height = `calc(100% - ${bar.value.$el.clientHeight + 'px'})`
+  scrollBar.value.$el.style.height = `calc(100% - ${`${bar.value.$el.clientHeight}px`})`
 })
 const props = defineProps({
   config: Object,

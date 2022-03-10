@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Dialog: typeof import('./src/components/Fuzzy/components/Dialog/index.vue')['default']
     FTable: typeof import('./src/components/Fuzzy/components/FTable.vue')['default']
     Fuzzy: typeof import('./src/components/Fuzzy/index.vue')['default']
     Pagination: typeof import('./src/components/Fuzzy/components/Pagination.vue')['default']

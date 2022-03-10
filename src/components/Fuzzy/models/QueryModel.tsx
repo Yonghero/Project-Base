@@ -31,12 +31,15 @@ class QueryModel implements FuzzyBaseModel<Templates> {
     this.data.value = this.config
       .filter(item => item.visible?.query)
       .map((item) => {
-        const _item: any = { ...item }
+        const _item: any = reactive({ ...item })
         _item.component = filterCompOfType(
           item.type && item.type !== FormItemEnum.select
             ? item.type
             : FormItemEnum.input,
         )
+        if (item.fetchQuery)
+          item.fetchQuery()
+
         return _item
       })
   }

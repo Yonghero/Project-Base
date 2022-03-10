@@ -1,21 +1,32 @@
 <template>
   <Fuzzy :config="configReactive" />
-  <el-dialog
-    v-model="dialogVisible"
-    title="Tips"
-    width="30%"
-    :before-close="handleClose"
-  />
+  <FuzzyDialog
+    ref="dialogRef"
+    title="这是标题"
+    :handler="dialogHandler"
+  >
+    <template #footer>
+      hhhhh
+    </template>
+    this is content
+  </FuzzyDialog>
 </template>
 <script lang='ts' setup>
 import Fuzzy from '../../components/Fuzzy/index.vue'
 import { getFuzzyConfig } from './config'
+import FuzzyDialog from '~/components/Fuzzy/components/Dialog/index.vue'
+import type { FuzzyDialogHandler } from '~/components/Fuzzy/types'
 
-const dialogVisible = ref(false)
-const configReactive = reactive(getFuzzyConfig(dialogVisible))
+const dialogRef = ref()
+const configReactive = reactive(getFuzzyConfig(dialogRef))
 
-const handleClose = () => {
-
+const dialogHandler: FuzzyDialogHandler = {
+  onCancel() {
+    console.log('cancel')
+  },
+  onConfirm() {
+    console.log('confirm')
+  },
 }
 
 </script>

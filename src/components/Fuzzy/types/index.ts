@@ -34,6 +34,7 @@ interface Templates {
     create?: boolean
     update?: boolean
   }
+  fetchQuery?: () => any
   render?(param: unknown): VNode
 }
 
@@ -86,3 +87,4 @@ export {
 }
 
 export * from './symbols'
+export * from '../components/Dialog/types'

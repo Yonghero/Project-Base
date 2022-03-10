@@ -86,13 +86,18 @@ export const getFuzzyConfig = (param: any) => {
         label: '爱好',
         value: 'hobby',
         type: FormItemEnum.select,
-        items: [{ label: '打篮球', value: 'bk' }, { label: '打篮球', value: 'bk' }, { label: '打篮球', value: 'bk' }],
+        items: [],
         require: true,
         visible: {
           query: true,
           table: true,
           create: true,
           update: true,
+        },
+        fetchQuery() {
+          setTimeout(() => {
+            this.items?.push(...[{ label: '打篮球', value: 'bk' }, { label: '打篮', value: 'bk' }, { label: '打', value: 'bk' }])
+          }, 500)
         },
       },
       {
@@ -160,7 +165,8 @@ export const getFuzzyConfig = (param: any) => {
           label: '自定义',
           value: 'diy',
           onClick: (row: any) => {
-            console.log('自定义按钮', row, param.value = true)
+            // param.setVisible(true)
+            console.log('自定义按钮', row, param.value.setVisible(true))
           },
         },
       ],

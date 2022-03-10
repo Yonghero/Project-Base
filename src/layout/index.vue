@@ -103,9 +103,10 @@ const exit = () => {
 }
 .el-main{
     width: 100%;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 56px);
   .contain{
     height: 100%;
+    overflow: hidden;
     .contain_main{
       width: 100%;
       height: calc(100% - 34px);

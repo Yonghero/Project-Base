@@ -35,6 +35,7 @@ $menuWidth : 120px;
         border-bottom: none !important;
         .el-sub-menu {
             width: menuWidth;
+            height: 56px;
             .el-sub-menu__icon-arrow{
                 display: none !important;
             }
@@ -54,6 +55,7 @@ $menuWidth : 120px;
         width: menuWidth;
         font-size: 16px !important;
         background: #283450 !important;
+        height: 56px;
     }
     .is-active{
         position: relative;

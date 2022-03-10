@@ -1,3 +1,25 @@
+// 定义滚动条
+.table-h-scrollbar {
+  /*定义滚动条轨道 内阴影+圆角*/
+  ::-webkit-scrollbar-track
+  {
+    //display: none;
+  }
+
+  /*定义滑块 内阴影+圆角*/
+  ::-webkit-scrollbar-thumb
+  {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(230, 230, 230, 0.5);
+    background-color: rgba(0, 0, 0, 0.15);
+    height: 10px;
+    cursor: pointer;
+  }
+  /*定义最上方和最下方的按钮*/
+  ::-webkit-scrollbar-button{
+    display: none;
+  }
+}
 // input
 .el-input__inner[type=number] {
   -moz-appearance:textfield;
@@ -10,6 +32,7 @@
 // dialog
 .el-dialog__header {
   padding: 20px;
+  margin : 0;
   border: 2px solid #EDF0F8;
 }
 // 分页
@@ -35,6 +58,10 @@
 .el-pager li:not(.disabled).active{
   background-color: #407ef6 !important;
   color : #fff;
+}
+.el-pagination__jump > .el-pagination__editor{
+  min-width: 0 !important;
+  width: 40px !important;
 }
 
 .el-table thead{
